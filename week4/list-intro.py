@@ -51,3 +51,17 @@ print("l =", l, "and len(l) is", len(l), end="\n\n")
 
 print("In this way, a list is like a set of numbered variables", end="\n\n")
 
+print("There are lots more things you can do with lists,")
+print("for example printing out each element on a separate line:", end="\n\n")
+
+i = 0
+while i < len(l):
+    print("The item at index {:d} is {}".format(i, l[i]))
+    i += 1
+
+print()
+print("(See the code for how to do this)")
+print()
+
+print("Some more helpful list functions are found here:")
+print("https://docs.python.org/3/tutorial/datastructures.html#data-structures")
