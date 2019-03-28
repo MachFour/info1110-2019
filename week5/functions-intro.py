@@ -36,45 +36,77 @@ print("This code calls the 'print' function with 1 argument")
 # Returning values and side effects #
 #####################################
 
-# Functions can interact with the rest of your program's code in two ways.
-# 1. They can return a variable/value to the place where the function is
-#    called. This the same as how a mathematical function works: it produces
-#    an output from some (or no) input. Here are some examples of functions
-#    that work this way:
+# Functions can interact with the rest of your program's code in two ways:
+#
+# ## 1. Return values ##
+#
+# A function can return a value to the place where the function is called.
+# This the same as how a mathematical function works: it produces an output
+# from some (or no) inputs. Here are some examples of functions that work
+# this way: int(), input(), and .format() and .split() for strings.
 
-# A function taking one number argument (x) that returns its square, x^2
+# To write a function that returns a value, we need to use the 'return'
+# keyword. Below is an example of such a function:
+
+# A function that takes one number argument (x) and returns its square.
 def square(x):
     return x*x
 
-# Returns the first item in the list l, provided it contains at least one item.
-# If l has no items, returns None.
+# A function that returns the first item in the list l, provided that l
+# it contains at least one item. If it does not, the function returns None.
 def return_first(l):
     if len(l) > 0:
         return l[0]
     else:
         return None
 
-# A function that returns a random number between 1 and 10. It takes no input.
+# A function that returns a random number between 1 and 10.
+# Notice that it takes no inputs.
 import random
-def random_number():
+def random_number_a():
     return random_randint(1, 10)
 
-# 2. Functions can also work by changing variables that exist outside
-#    the function. This is called a 'side-effect' of the function.
-#    You can think of the print function as working this way. Even though
-#    you can't see it, there are variables in the Python software that
-#    store text to be printed to the terminal. These kinds of functions
-#    don't always return a value:
+# This is a modification of the previous function that allows specifiying
+# the upper limit on the random number. This argument must always be given.
+def random_number_b(upper):
+    return random_randint(1, upper)
 
-# print doesn't return a value
+# This time, the 'upper' argument is optional, with a defualt value of 10.
+# If you don't provide any arguments, it will act the same as random_number_a
+def random_number_c(upper=10):
+    return random_randint(1, upper)
+
+
+# ## 2. Side Effects ##
+#
+# Functions can also work by changing variables that exist outside
+# the function. This is called a 'side-effect' of the function.
+# These kinds of functions don't always return a value:
+
+# The print function is an example of a function that works this way.
+# You can't see it, there are variables in the Python software that
+# store text to be printed to the terminal, and these are changed
+# when you call the print function.
+
+# In python, if you try to use the return value of a function that doesn't
+# return anything, it will be as if the function returned None. See below:
+
+# note: print doesn't return a value
 a = print("Just printing some random stuff")
 if a == None:
     print("The 'print' function doesn't return anything")
     print("If you try to use the return value of a function that doesn't",
         "return anything, the return value will be None")
 
-#    While not always true, sometimes functions can work by modifying
-#    their input arguments. Look at the following example:
+# ## 3. Modifying input arguments ##
+
+# As a subset of functions with side effects, sometimes functions can
+# work by modifying their input arguments.
+# The .append() and .insert() functions on lists are examples of this.
+# (Note that you can think of the (list) variable before the dot as an
+# extra argument to the function.)
+
+# Look at the following example:
 
 # This function modifies its argument list by changing the first item to 0,
 # unless the list is empty. In which case, this function does nothing.
