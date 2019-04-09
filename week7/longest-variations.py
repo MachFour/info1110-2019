@@ -38,7 +38,6 @@ def longest2(words):
     for w in words:
         if len(w) == longest_length:
             longest_word = w
-            break
             # what happens if we break here?
 
     return longest_word
@@ -79,6 +78,7 @@ def test_all():
     else:
         print("This is what was expected, yay")
 
+# this prevents the tests from running if you import this file as a module
 if __name__ == "__main__":
     test_all()
 
