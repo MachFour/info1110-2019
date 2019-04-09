@@ -1,5 +1,4 @@
-# Most basic programming techniques
-# but more code needed
+# Most basic programming techniques, but more code needed
 def longest1(words):
     if len(words) == 0:
         return None
@@ -7,7 +6,6 @@ def longest1(words):
     # the list is not empty, otherwise the function would have returned
     longest_len = len(words[0])
     longest_index = 0
-
     index = 0
     while index < len(words):
         next_word = words[index]
@@ -17,7 +15,6 @@ def longest1(words):
             longest_index = index
 
         index += 1
-
     return words[longest_index]
 
 # using more python tricks:
