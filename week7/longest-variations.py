@@ -1,14 +1,12 @@
-
 # Most basic programming techniques
 # but more code needed
-
 def longest1(words):
     if len(words) == 0:
         return None
 
-    # We make it so these values will immediately be overwritten
-    longest_len = -1 # the longest length found
-    longest_index = -1 # where the longest words appears in the list
+    # the list is not empty, otherwise the function would have returned
+    longest_len = len(words[0])
+    longest_index = 0
 
     index = 0
     while index < len(words):
@@ -28,13 +26,10 @@ def longest1(words):
 def longest2(words):
     if not words:
         return None
-
     # This iterates through the list once, just to find the maximum
     longest_length = max(len(w) for w in words)
-
     # we only need to save just the word this time.
-    longest_word = ""
-
+    longest_word = words[0]
     for w in words:
         if len(w) == longest_length:
             longest_word = w
@@ -49,7 +44,6 @@ def test_all():
     w3 = []
 
     expected_longest = ['longest', 'elongated', None]
-
     print("First method:", end="\n\n")
     longest1_test = [longest1(w1), longest1(w2), longest1(w3)]
 
