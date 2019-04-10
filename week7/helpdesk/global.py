@@ -7,8 +7,8 @@ def f1():
 
 def f2():
     global number
+    # now we can change the global 'number'
     number = 7
-    # the global number won't be changed
     print(number)
 
 def f3():
