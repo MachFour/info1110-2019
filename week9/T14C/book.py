@@ -8,6 +8,16 @@ class Book:
         self.year = year
         self.url = url
 
+    # returns the age of the book in years
+    def how_old(self):
+        return 2019 - self.year
+
+    def length_of_title(self):
+        return len(self.title)
+
+    # this is a class method
+    def default_url():
+        return 'www.google.com'
 
     # this function is called when a string representation of a Book
     # object is needed, for example in print()
@@ -21,4 +31,4 @@ class Book:
     # Now comment out this function, and try to print() a book out.
     # What do you see?
 
-book = Book("The Very Hungry Caterpillar", "Eric Carle", 1969, "www.tvhc.com")
+my_book = Book("The Very Hungry Caterpillar", "Eric Carle", 1969, "www.tvhc.com")
