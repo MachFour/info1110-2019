@@ -10,6 +10,10 @@ class Player:
     def name(self):
         return self._name
 
+    # this prevents 'self' from being
+    # passed in to the function, even it's called with
+    # player.best_score()
+    @staticmethod
     def best_score(players):
         best = players[0]
         i = 1
