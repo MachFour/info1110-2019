@@ -16,7 +16,6 @@ class BankAccount:
     def balance(self):
         return self._balance
 
-
     # controlled access to the balance
     def deposit(self, amount):
         if amount < 0:
@@ -62,7 +61,7 @@ class BankAccount:
             return cls.interest_rate # usual interest rate
 
 
-if __name__ == ":__main__":
+if __name__ == "__main__":
     # some sample usage
     a = BankAccount("Nabi", 5000)
     b = BankAccount("Rong", 10000)
