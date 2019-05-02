@@ -13,12 +13,13 @@ class Circle:
         self.radius = radius
 
     # used in print()
+    # if this function is not defined, __repr__ is used instead
     def __str__(self):
         return "Circle with radius {:.2f}".format(self.radius)
 
     # Used in printing lists
     def __repr__(self):
-        return "Circle({:.2f})".format(self.radius)
+        return "Circle ({:.2f})".format(self.radius)
 
     def get_area(self):
         # formula: pi*radius^2
