@@ -15,3 +15,7 @@ cat_effects = "You throw a bag of catnip at a nearby, unfortunate soul, " \
 cataclysm = Spell("Cataclysm", "Conjuration", 6, 2, cat_effects)
 # The spell "Cataclysm" belongs to the school of "Conjuration",
 # has a level of 6 and can be cast 2 times per day.
+
+# use the spells
+summon.cast()
+cataclysm.cast()

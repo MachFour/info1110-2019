@@ -21,8 +21,20 @@ class Spell:
         self.level = level
         self.cast_limit = cast_limit
         self.effect = effect
-
         self.casts = cast_limit
+
+    def get_name(self):
+        return self.name
+    def get_school(self):
+        return self.school
+    def get_level(self):
+        return self.level
+    def get_cast_limit(self):
+        return self.cast_limit
+    def get_effect(self):
+        return self.effect
+    def get_casts(self):
+        return self.cast_limit
 
     def __repr__(self):
         return "Spell '{}' of school {}. Level: {:d}, cast limit: {:d}, " \
@@ -42,4 +54,7 @@ class Spell:
             print("Can't cast '{}' any more today.".format(self.name))
 
     def recharge(self):
-        raise NotImplemented()
+        # resets remaining casts to the maximum limit
+        self.casts = self.cast_limit
+
+
