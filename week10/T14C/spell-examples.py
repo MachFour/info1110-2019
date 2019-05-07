@@ -1,4 +1,5 @@
-import spell
+from spell import Spell
+# from <file> import <Class>
 
 cat_summoned = "You reach into your pocket for a can of tuna and " \
         "crack it open.  A cat pops into existence beside you in a puff of smoke!"

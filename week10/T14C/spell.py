@@ -23,3 +23,23 @@ class Spell:
         self.effect = effect
 
         self.casts = cast_limit
+
+    def __repr__(self):
+        return "Spell '{}' of school {}. Level: {:d}, cast limit: {:d}, " \
+                "remaining casts: {:d}".format(self.name, self.school,
+                        self.level, self.cast_limit, self.casts)
+
+    def cast(self):
+        if self.casts > 0:
+            # can cast the spell
+            self.casts -= 1
+            print("Casting '{}'...".format(self.name))
+            print(self.effect)
+            print()
+            print("You can cast '{}' {:d} more time(s) today.".format(self.name,
+                self.casts))
+        else:
+            print("Can't cast '{}' any more today.".format(self.name))
+
+    def recharge(self):
+        raise NotImplemented()
