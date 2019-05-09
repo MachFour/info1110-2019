@@ -21,21 +21,28 @@ class Spellbook:
             self.add_spell(spell)
 
     def __repr__(self):
-        #TODO
-        pass
+        s = "{:s} spellbook, capacity {:d}, {:d} spells with total level {:d}"
+        return s.format(self.material, self.capacity, len(spells),
+                self.get_total_level())
 
-    # This is a 'getter' method, but we don't need a corresponding
-    # instance variable (attribute), because the answer can just be
+    # These two are also 'getter' methods, but we don't need corresponding
+    # instance variables (attributes), because the answer can just be
     # calculated from other instance variables
-    def get_remaining_capacity(self):
-        remaining_capacity = self.capacity
+    def get_total_level(self):
+        total_level = 0
         # let's use a while loop for the practice
         i = 0
         while i < len(self.spells):
             # use the getter method of the Spell class to find the level
-            remaining_capacity -= spells[i].get_level()
+            total_level += spells[i].get_level()
             i += 1
-        return remaining_capacity
+        return total_level
+
+    def get_remaining_capacity(self):
+        # using get_total_level() makes this instance method very easy
+        return self.capacity - self.get_total_level()
+
+    # From the lab sheet
 
     def add_spell(self, spell):
         if not isinstance(spell, Spell):
