@@ -23,4 +23,37 @@ class Spell:
         # records how many casts are left for the 'day'
         self.casts = cast_limit
 
+    # s = Spell("A spell", "School", 100, 10, "I cast a spell")
+    # print(s) -> calls print(s.__repr__())
+    def __repr__(self):
+        return "Spell '{}' of school {}. Level: {:d}, cast limit: {:d}, " \
+                "remaining casts: {:d}".format(self.name, self.school,
+                        self.level, self.cast_limit, self.casts)
 
+    def get_name(self):
+        return self.name
+    def get_school(self):
+        return self.school
+    def get_level(self):
+        return self.level
+    def get_cast_limit(self):
+        return self.cast_limit
+    def get_effect(self):
+        return self.effect
+    def get_casts(self):
+        return self.casts
+
+    def cast(self):
+        if self.casts > 0:
+            # can cast the spell
+            self.casts -= 1
+            print("Casting '{}'...".format(self.name))
+            print(self.effect)
+            print()
+            print("You can cast '{}' {:d} more time(s) today.".format(self.name,
+                self.casts))
+        else:
+            print("Can't cast '{}' any more today.".format(self.name))
+
+    def recharge(self):
+        self.casts = self.cast_limit
