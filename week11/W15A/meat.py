@@ -1,0 +1,3 @@
+
+def ham():
+    print("Ham!")
