@@ -1,0 +1,3 @@
+
+def factorial(n):
+    pass
