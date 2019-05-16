@@ -24,32 +24,43 @@ def solve(target, numbers):
             return Solution(target, numbers[0])
         else:
             return None
-    # Now try each of the operations in turn
+    # Now try each of the operations in turn on each number
     # (note: don't need else due to return statements above)
 
-    # add:
-    solution = solve(target - numbers[0], numbers[1:])
+    solution = None
+
+    i = 0
+    while i < len(numbers):
+        # try an operation using this number, and recurse on the rest
+        n = numbers[i]
+        rest = numbers[:i] + numbers[i+1:] # exclude number at index i
+        # add:
+        solution = solve(target - n, rest)
+        if solution:
+            solution.add_operation("+ {:d}".format(n))
+            break
+        # subtract
+        solution = solve(target + n, rest)
+        if solution:
+            solution.add_operation("- {:d}".format(n))
+            break
+        # multiply
+        solution = solve(target / n, rest)
+        if solution:
+            solution.add_operation("* {:d}".format(n))
+            break
+        # divide
+        solution = solve(target * n, rest)
+        if solution:
+            solution.add_operation("/ {:d}".format(n))
+            break
+        i += 1
+
     if solution:
-        solution.add_operation("+ {:d}".format(numbers[0]))
         solution.target = target
         return solution
-    # subtract
-    solution = solve(target + numbers[0], numbers[1:])
-    if solution:
-        solution.add_operation("- {:d}".format(numbers[0]))
-        solution.target = target
-        return solution
-    # multiply
-    solution = solve(target / numbers[0], numbers[1:])
-    if solution:
-        solution.add_operation("* {:d}".format(numbers[0]))
-        solution.target = target
-        return solution
-    # divide
-    solution = solve(target * numbers[0], numbers[1:])
-    if solution:
-        solution.add_operation("/ {:d}".format(numbers[0]))
-        solution.target = target
-        return solution
+    else:
+        # it's nice to explicitly show that we want to return None
+        return None
 
 

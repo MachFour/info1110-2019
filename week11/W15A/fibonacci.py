@@ -38,5 +38,7 @@ def fibonacci_iterative(n):
         i -= 1
     return next_number
 
-
+def fibonacci_test():
+    for i in range(10):
+        assert fibonacci(i) == fibonacci_iterative(i)
 
