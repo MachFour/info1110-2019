@@ -13,7 +13,7 @@ class Person:
     def check_year(year):
         pass
 
-    def __init__(self, id, full_name, year):
+    def __init__(self, full_name, year):
         # instance variables
         # increment number of people created
         Person.counter += 1
