@@ -1,0 +1,48 @@
+PDB
+
+Python has a program called PDB (short for Python Debugger) that can be used to inspect your code while it is running, to help you better understand what your code is doing and to diagnose bugs.
+
+===========================
+
+To use PDB with your code, use the following bash/shell command:
+
+$ python3 -m pdb [your_program.py] [program arguments]
+
+Once you are successfully running PDB, you should see some messages, and importantly, the PDB prompt which looks like this (the underscore is your cursor):
+
+(Pdb) _
+
+Here is a list of some useful commands that you can use in PDB. Enter them without quotes.
+
+'l' or 'list': prints out your code, at the point where it is currently up to. Add a line number after l to print out code starting at that line (e.g. l 10) to print from line 10
+'p' or 'pp' : prints out the value of a variable that is defined/visible in the current function. 'pp' is for 'pretty print'
+'n' or 'next': run one line of code, proceeding to next line in the current function.
+'h' or 'help': print out a list of available debugging commands
+'q' or 'quit': quits the debugger
+'c' or 'continue': runs the program normally
+
+You can also write any valid Python code and have it run as if it existed in the original program file, e.g. print() statements or variable assignments.
+If you encounter strange errors while doing this, prefix the code with an
+exclamation mark (!), which explicitly tells PDB to interpret the command as Python code.
+
+
+===============================
+
+If there is a specific place in your code that you want to debug, you can add these lines to your code at the point in the code you are interested in:
+
+import pdb
+pdb.set_trace()
+
+After this, save your code and then run it inside PDB as described above. You can press 'c' to continue from the beginning, and then PDB should stop if/when it encounters this line, allowing you to investigate what is going on.
+
+
+================================
+
+Further reading:
+
+Official documentation: https://docs.python.org/3/library/pdb.html
+A good blog post: https://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python/
+
+Other things:
+https://python-intro.readthedocs.io/en/latest/appendix_errors.html
+https://stackoverflow.com/questions/4228637/getting-started-with-the-python-debugger-pdb
