@@ -14,6 +14,9 @@ class Solution:
     def add_operation(self, op):
         self.operations.append(op)
 
+    def add_operation_pre(self, op):
+        self.operations.insert(0, op)
+
 def solve(target, numbers):
     if len(numbers) == 0:
         # base case (should not be reached during normal recursion)
@@ -39,16 +42,27 @@ def solve(target, numbers):
         if solution:
             solution.add_operation("+ {:d}".format(n))
             break
+        # add 2:
+        solution = solve(n - target, rest)
+        if solution:
+            solution.add_operation_pre("{:d} +".format(n))
+            break
         # subtract
         solution = solve(target + n, rest)
         if solution:
             solution.add_operation("- {:d}".format(n))
             break
-        # multiply
+        # multiply 1
         solution = solve(target / n, rest)
         if solution:
             solution.add_operation("* {:d}".format(n))
             break
+        # multiply 2
+        if target != 0:
+            solution = solve(n / target, rest)
+            if solution:
+                solution.add_operation_pre("{:d} *".format(n))
+                break
         # divide
         solution = solve(target * n, rest)
         if solution:
@@ -63,4 +77,5 @@ def solve(target, numbers):
         # it's nice to explicitly show that we want to return None
         return None
 
-
+if __name__ == "__main__":
+    pass
